@@ -18,13 +18,15 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding(40)
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .bottomTrailing)
                     .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
             }
+            Spacer()
             HStack {
                 //clear button
                 Button("CLS") {
-                
+                    mHandler.clearBtn()
+                    UIText = mHandler.handleUIText()
                 }.font(.title).frame(width:100, height:100)
                 .foregroundColor(.white)
                 .background(Color.red)
@@ -33,7 +35,8 @@ struct ContentView: View {
                 Spacer()
                 
                 Button("=") {
-                    
+                    mHandler.arithmatic()
+                    UIText = mHandler.handleUIText()
                 }.font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).frame(width:100, height:100)
                 .foregroundColor(.white)
                 .background(Color.green)
@@ -67,7 +70,7 @@ struct ContentView: View {
                 .background(Color.gray)
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 Button("+") {
-
+                    mHandler.addSign(sign: "+")
                 }.font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).frame(width:100, height:100)
                 .foregroundColor(.white)
                 .background(Color.orange)
@@ -100,7 +103,7 @@ struct ContentView: View {
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 
                 Button("-") {
-                    
+                    mHandler.addSign(sign: "-")
                 }.font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).frame(width:100, height:100)
                 .foregroundColor(.white)
                 .background(Color.orange)
@@ -134,7 +137,7 @@ struct ContentView: View {
                 
                 
                 Button("/") {
-
+                    mHandler.addSign(sign: "/")
                 }.font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).frame(width:100, height:100)
                 .foregroundColor(.white)
                 .background(Color.orange)
@@ -151,7 +154,7 @@ struct ContentView: View {
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
 
                 Button("x") {
-
+                    mHandler.addSign(sign: "x")
                 }.font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).frame(width:100, height:100)
                 .foregroundColor(.white)
                 .background(Color.orange)
@@ -159,6 +162,7 @@ struct ContentView: View {
                 .offset(x:100)
                 
             }
+            Spacer()
         }
     }
 }
